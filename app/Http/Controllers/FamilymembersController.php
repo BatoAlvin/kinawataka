@@ -25,7 +25,7 @@ class FamilymembersController extends Controller
     public function index()
     {
         if(Auth::user()->role->view_familymember ){
-            $member = Familymembers::where('status',1)->whereNot('id', '=', 10)->get();
+            $member = Familymembers::where('status',1)->orderBy('id','desc')->get();
             return view('familymembers.index')->with('member',$member);
         }else{
             return redirect('/');

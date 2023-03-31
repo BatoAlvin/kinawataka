@@ -93,6 +93,7 @@ color:#000;
                     <table id="example2" class="display" style="width:100%">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Names</th>
                                 <th>Email</th>
                                 <th>Contact</th>
@@ -104,6 +105,7 @@ color:#000;
                         <tbody>
                             @foreach ($member as $members)
                             <tr>
+                            <td>{{$loop->iteration}}</td>
                                 <td>{{$members->family_name}}</td>
                                 <td>{{$members->email}}</td>
                                 <td>{{$members->contact}}</td>

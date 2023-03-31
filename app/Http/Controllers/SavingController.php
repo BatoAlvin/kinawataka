@@ -28,6 +28,7 @@ class SavingController extends Controller
      */
     public function index()
     {
+
         if(Auth::user()->role_id==1){
             $saving = Saving::with('member')->get();
         }else{
@@ -85,15 +86,15 @@ class SavingController extends Controller
           ]);
 
 
-          $headers = "MIME-Version: 1.0" . "\r\n";
-          $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-          $from = "info@schoolmonitor.com";
-          $msg = "Your saving of $request->amount has been received successfully";
+        //   $headers = "MIME-Version: 1.0" . "\r\n";
+        //   $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        //   $from = "info@schoolmonitor.com";
+        //   $msg = "Your saving of $request->amount has been received successfully";
         //   mail("alvinbato112@gmail.com","Deposit received successfully",$msg,$headers);
         //   $request->user()->notify(new SavingsAdded($request->amount));
-        $member = Familymembers::find($request->name)->first();
-        $email = ['mail'=>$member->email,'name'=>$member->family_name];
-        Notification::route('mail', $member->email)->notify(new SavingsAdded($member));
+        // $member = Familymembers::find($request->name)->first();
+        // $email = ['mail'=>$member->email,'name'=>$member->family_name];
+        // Notification::route('mail', $member->email)->notify(new SavingsAdded($member));
           return redirect('/savings')->with('message', "Savings saved successfully");
     }
 
